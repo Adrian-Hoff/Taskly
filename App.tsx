@@ -1,6 +1,3 @@
-//expo
-// import { StatusBar } from "expo-status-bar";
-
 //native-base
 import { Box, NativeBaseProvider, StatusBar } from "native-base";
 
