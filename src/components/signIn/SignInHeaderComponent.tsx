@@ -13,24 +13,24 @@ import { Box } from "native-base";
 //components
 import TextComponent from "../TextComponent";
 
-function DashboardHeaderComponent() {
+function SignInHeaderComponent() {
   return (
     <Box bg={THEMES.color.bg.gray} pb={10} pt={"32"} px={5}>
       <TextComponent
         text={TEXTS.signInScreen.dashboardHeaderComponent.text_1}
-        color={THEMES.color.font.gray20}
-        fontSize="2xl"
         fontFamily={THEMES.fontFamily.Lato_700Bold}
+        color={THEMES.color.font.gray20}
         textTransform={"uppercase"}
+        fontSize="2xl"
       />
       <TextComponent
         text={TEXTS.signInScreen.dashboardHeaderComponent.text_2}
-        color={THEMES.color.font.gray60}
-        fontSize="2xl"
         fontFamily={THEMES.fontFamily.Lato_400Regular}
+        color={THEMES.color.font.gray60}
         textTransform={"uppercase"}
+        fontSize="2xl"
       />
     </Box>
   );
 }
-export default React.memo(DashboardHeaderComponent);
+export default React.memo(SignInHeaderComponent);
