@@ -1,5 +1,5 @@
 //react
-import { useCallback } from "react";
+import { useEffect } from "react";
 
 //expo
 import {
@@ -22,9 +22,9 @@ export default function App() {
     Lato_700Bold,
   });
 
-  useCallback(async () => {
+  useEffect(() => {
     if (fontsLoaded) {
-      await SplashScreen.hideAsync();
+      SplashScreen.hideAsync();
     }
   }, [fontsLoaded]);
 
