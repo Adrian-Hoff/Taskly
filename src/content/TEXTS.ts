@@ -14,8 +14,9 @@ export const TEXTS = {
       text_3: " Recover password",
     },
     touchableOpacityComponent: {
-      text_1: "sign in",
-      text_2: "create account",
+      text_1: "sign in with google",
+      text_2: "sign in",
+      text_3: "create account",
     },
   },
 };
