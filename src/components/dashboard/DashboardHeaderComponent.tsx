@@ -1,10 +1,19 @@
-// native-base
-import { Box } from "native-base";
-import TextComponent from "../TextComponent";
-import { TEXTS } from "../../content/TEXTS";
+//react
+import React from "react";
+
+//themes
 import { THEMES } from "../../themes/Themes";
 
-export default function DashboardHeaderComponent() {
+//texts
+import { TEXTS } from "../../content/TEXTS";
+
+// native-base
+import { Box } from "native-base";
+
+//components
+import TextComponent from "../TextComponent";
+
+function DashboardHeaderComponent() {
   return (
     <Box bg={THEMES.color.bg.gray} pb={10} pt={"32"} px={5}>
       <TextComponent
@@ -24,3 +33,4 @@ export default function DashboardHeaderComponent() {
     </Box>
   );
 }
+export default React.memo(DashboardHeaderComponent);
