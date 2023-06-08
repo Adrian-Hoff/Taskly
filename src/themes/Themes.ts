@@ -6,11 +6,13 @@ export const THEMES = {
       white: "#ffffff",
     },
     font: {
+      black: "#000000",
       gray20: "#202020",
       gray40: "#404040",
       gray60: "#606060",
       gray80: "#808080",
       grayAA: "#AAAAAA",
+      white: "#ffffff",
     },
   },
   fontFamily: {
