@@ -1,4 +1,4 @@
-const THEMES = {
+export const THEMES = {
   color: {
     bg: {
       black: "#000000",
@@ -16,6 +16,6 @@ const THEMES = {
   fontFamily: {
     Lato_300Light: "Lato_300Light",
     Lato_400Regular: "Lato_400Regular",
-    Lato_700Bold: "Lato_400Regular",
+    Lato_700Bold: "Lato_700Regular",
   },
 };
