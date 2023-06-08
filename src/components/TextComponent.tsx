@@ -1,10 +1,13 @@
+//react
+import React from "react";
+
 //types
 import { TypeTextComponent } from "../types/TypeTextComponent";
 
 //native-base
 import { Text } from "native-base";
 
-export default function TextComponent({
+function TextComponent({
   text,
   color,
   fontSize,
@@ -17,3 +20,4 @@ export default function TextComponent({
     </Text>
   );
 }
+export default React.memo(TextComponent);
