@@ -1,4 +1,6 @@
-export type TypeTextComponent = {
+import { ITextProps } from "native-base";
+
+export type TypeTextComponent = ITextProps & {
   text: string;
   color: string;
   fontSize: string;
