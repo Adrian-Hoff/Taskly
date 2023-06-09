@@ -10,6 +10,9 @@ import {
 } from "@expo-google-fonts/lato";
 import * as SplashScreen from "expo-splash-screen";
 
+//routes
+import Router from "./src/routes/router";
+
 //native-base
 import { Box, NativeBaseProvider, StatusBar } from "native-base";
 
@@ -34,13 +37,12 @@ export default function App() {
 
   return (
     <NativeBaseProvider>
-      <Box flex={1}>
-        <StatusBar
-          backgroundColor="transparent"
-          barStyle={"dark-content"}
-          translucent
-        />
-      </Box>
+      <StatusBar
+        backgroundColor="transparent"
+        barStyle={"dark-content"}
+        translucent
+      />
+      <Router />
     </NativeBaseProvider>
   );
 }
