@@ -1,5 +1,11 @@
 //navigator
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  CardStyleInterpolators,
+  createStackNavigator,
+  StackCardInterpolationProps,
+  StackCardInterpolatedStyle,
+  TransitionSpecs,
+} from "@react-navigation/stack";
 import SignInScreen from "../../screens/auth/SignInScreen";
 import { THEMES } from "../../themes/Themes";
 import SignUpScreen from "../../screens/auth/SignUpScreen";
@@ -15,7 +21,9 @@ export default function AuthRoutes() {
         cardStyle: {
           backgroundColor: THEMES.color.bg.white,
         },
-        freezeOnBlur: true,
+        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        gestureDirection: "horizontal-inverted",
+        headerMode: "screen",
       }}
     >
       <Stack.Screen name="SignInScreen" component={SignInScreen} />
