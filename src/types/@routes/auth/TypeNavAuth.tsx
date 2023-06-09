@@ -4,6 +4,8 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 export type TypeRoutesAuth = {
   SignInScreen: undefined;
   SignUpScreen: undefined;
+  TermsOfUseScreen: undefined;
+  PrivacyPolicyScreen: undefined;
 };
 
 type Props = NativeStackScreenProps<TypeRoutesAuth>;
