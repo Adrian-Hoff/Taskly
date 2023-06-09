@@ -16,13 +16,22 @@ function SignUpScreen() {
   function handleGoBack() {
     navigationAuth.navigate("SignInScreen");
   }
+  function handleNavigateToTermsOfUseScreen() {
+    navigationAuth.navigate("TermsOfUseScreen");
+  }
+  function handleNavigateToPrivacyPolicyScreen() {
+    navigationAuth.navigate("PrivacyPolicyScreen");
+  }
 
   useEffect(() => {
     console.log("signUpScreen");
   }, []);
   return (
     <Box flex={1}>
-      <AuthStackHeaderComponent onPress={handleGoBack} />
+      <AuthStackHeaderComponent
+        text={TEXTS.signUpScreen.stackHeaderComponent.text_2}
+        onPress={handleGoBack}
+      />
       <ScrollView _contentContainerStyle={{ flexGrow: 1 }}>
         <VStack py={10} px={5} space={3}>
           <InputComponent
@@ -64,6 +73,7 @@ function SignUpScreen() {
             <TextComponent
               text={TEXTS.signUpScreen.textComponent.text_2}
               fontFamily={THEMES.fontFamily.Lato_700Bold}
+              onPress={handleNavigateToTermsOfUseScreen}
               color={THEMES.color.font.black}
               fontSize={"sm"}
             />{" "}
@@ -75,6 +85,7 @@ function SignUpScreen() {
             />{" "}
             <TextComponent
               text={TEXTS.signUpScreen.textComponent.text_4}
+              onPress={handleNavigateToPrivacyPolicyScreen}
               fontFamily={THEMES.fontFamily.Lato_700Bold}
               color={THEMES.color.font.black}
               fontSize={"sm"}
