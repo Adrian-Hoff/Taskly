@@ -15,7 +15,7 @@ import TextComponent from "../TextComponent";
 
 function SignInHeaderComponent() {
   return (
-    <Box bg={THEMES.color.bg.gray} pb={10} pt={"32"} px={5}>
+    <Box bg={THEMES.color.bg.gray} pb={10} pt={"20"} px={5}>
       <TextComponent
         text={TEXTS.signInScreen.dashboardHeaderComponent.text_1}
         fontFamily={THEMES.fontFamily.Lato_700Bold}
