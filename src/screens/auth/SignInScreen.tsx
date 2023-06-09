@@ -1,5 +1,5 @@
 //react
-import React from "react";
+import React, { useEffect } from "react";
 
 //native-base
 import { Box, Center, ScrollView, Text, VStack } from "native-base";
@@ -10,6 +10,9 @@ import { THEMES } from "../../themes/Themes";
 //texts
 import { TEXTS } from "../../content/TEXTS";
 
+//hooks
+import { useNavigationAuth } from "../../hooks/use-navigation/useNavigationAuth";
+
 //components
 import TouchableOpacityComponent from "../../components/TouchableOpacityComponent";
 import InputComponent from "../../components/InputComponent";
@@ -17,6 +20,15 @@ import TextComponent from "../../components/TextComponent";
 import SignInHeaderComponent from "../../components/auth/SignInHeaderComponent";
 
 function SignInScreen() {
+  const navigationAuth = useNavigationAuth();
+
+  function handleNavigateToSignUpScreen() {
+    navigationAuth.navigate("SignUpScreen");
+  }
+  useEffect(() => {
+    console.log("signInScreen");
+  }, []);
+
   return (
     <Box flex={1}>
       <ScrollView _contentContainerStyle={{ flexGrow: 1 }}>
@@ -72,6 +84,7 @@ function SignInScreen() {
           <TouchableOpacityComponent
             text={TEXTS.signInScreen.touchableOpacityComponent.text_3}
             fontFamily={THEMES.fontFamily.Lato_700Bold}
+            onPress={handleNavigateToSignUpScreen}
             color={THEMES.color.font.black}
             textTransform={"uppercase"}
             bg={THEMES.color.bg.gray}

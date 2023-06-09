@@ -28,7 +28,7 @@ export const TEXTS = {
       text_1: "Email",
       text_2: "Password",
       text_3: "Confirm Password",
-      text_4: "phone number",
+      text_4: "Phone Number",
     },
     textComponent: {
       text_1: "By creating your Taskly account, you are agreeing to our",
