@@ -7,6 +7,9 @@ import ArrowLeftFillSVG from "../../assets/ArrowLeftFillSVG.svg";
 //react-native
 import { TouchableOpacity } from "react-native";
 
+//type
+import { TypeAuthStackHeaderComponent } from "../../types/@routes/auth/TypeAuthStackHeaderComponent";
+
 //themes
 import { THEMES } from "../../themes/Themes";
 
@@ -18,9 +21,11 @@ import { HStack, VStack } from "native-base";
 
 //components
 import TextComponent from "../TextComponent";
-import { useNavigationAuth } from "../../hooks/use-navigation/useNavigationAuth";
 
-function AuthStackHeaderComponent({ text, ...props }) {
+function AuthStackHeaderComponent({
+  text,
+  ...props
+}: TypeAuthStackHeaderComponent) {
   return (
     <VStack p={5} pt={10} bg={THEMES.color.bg.gray} rounded={10}>
       <TouchableOpacity {...props}>
