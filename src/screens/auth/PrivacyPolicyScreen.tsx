@@ -13,12 +13,19 @@ import { Box, ScrollView } from "native-base";
 //components
 import AuthStackHeaderComponent from "../../components/auth/AuthStackHeaderComponent";
 import TextComponent from "../../components/TextComponent";
+import { useNavigationAuth } from "../../hooks/use-navigation/useNavigationAuth";
 
 function PrivacyPolicyScreen() {
+  const navigationAuth = useNavigationAuth();
+
+  function handleAuthNavigationToSignUpScreen() {
+    navigationAuth.navigate("SignUpScreen");
+  }
   return (
     <Box flex={1}>
       <AuthStackHeaderComponent
         text={TEXTS.privacyPolicyScreen.stackHeaderComponent.text_2}
+        onPress={handleAuthNavigationToSignUpScreen}
       />
       <ScrollView
         px={5}
