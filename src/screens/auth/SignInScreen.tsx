@@ -1,5 +1,5 @@
 //react
-import React from "react";
+import React, { useEffect } from "react";
 
 //native-base
 import { Box, Center, ScrollView, Text, VStack } from "native-base";
@@ -25,6 +25,9 @@ function SignInScreen() {
   function handleNavigateToSignUpScreen() {
     navigationAuth.navigate("SignUpScreen");
   }
+  useEffect(() => {
+    console.log("signInScreen");
+  }, []);
 
   return (
     <Box flex={1}>
