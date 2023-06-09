@@ -20,16 +20,10 @@ import { HStack, VStack } from "native-base";
 import TextComponent from "../TextComponent";
 import { useNavigationAuth } from "../../hooks/use-navigation/useNavigationAuth";
 
-function AuthStackHeaderComponent() {
-  const navigationAuth = useNavigationAuth();
-
-  function handleGoBack() {
-    navigationAuth.goBack();
-  }
-
+function AuthStackHeaderComponent({ ...props }) {
   return (
     <VStack p={5} pt={10} bg={THEMES.color.bg.gray} rounded={10}>
-      <TouchableOpacity onPress={handleGoBack}>
+      <TouchableOpacity {...props}>
         <HStack alignItems={"center"} space={2}>
           <ArrowLeftFillSVG />
           <TextComponent
