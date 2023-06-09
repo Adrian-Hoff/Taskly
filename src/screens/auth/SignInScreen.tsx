@@ -25,6 +25,11 @@ function SignInScreen() {
   function handleNavigateToSignUpScreen() {
     navigationAuth.navigate("SignUpScreen");
   }
+
+  function handleNavigateToRecoverPasswordScreen() {
+    navigationAuth.navigate("RecoverPasswordScreen");
+  }
+
   useEffect(() => {
     console.log("signInScreen");
   }, []);
@@ -72,6 +77,21 @@ function SignInScreen() {
         </VStack>
         <Box flex={1} />
         <VStack space={3} p={5} pt={10}>
+          <Center flexDirection={"row"}>
+            <TextComponent
+              fontFamily={THEMES.fontFamily.Lato_400Regular}
+              text={TEXTS.signInScreen.textComponent.text_2}
+              color={THEMES.color.font.gray60}
+              fontSize={"sm"}
+            />
+            <TextComponent
+              onPress={handleNavigateToRecoverPasswordScreen}
+              text={TEXTS.signInScreen.textComponent.text_3}
+              fontFamily={THEMES.fontFamily.Lato_700Bold}
+              color={THEMES.color.font.black}
+              fontSize={"sm"}
+            />
+          </Center>
           <TouchableOpacityComponent
             text={TEXTS.signInScreen.touchableOpacityComponent.text_2}
             fontFamily={THEMES.fontFamily.Lato_700Bold}

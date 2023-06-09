@@ -1,6 +1,9 @@
 //react
 import React from "react";
 
+//hooks
+import { useNavigationAuth } from "../../hooks/use-navigation/useNavigationAuth";
+
 //texts
 import { TEXTS } from "../../content/TEXTS";
 
@@ -15,10 +18,18 @@ import AuthStackHeaderComponent from "../../components/auth/AuthStackHeaderCompo
 import TextComponent from "../../components/TextComponent";
 
 function TermsOfUseScreen() {
+
+  const navigationAuth = useNavigationAuth();
+
+  function handleAuthNavigationToSignUpScreen() {
+    navigationAuth.navigate("SignUpScreen");
+  }
+
   return (
     <Box flex={1}>
       <AuthStackHeaderComponent
         text={TEXTS.termsOfUseScreen.stackHeaderComponent.text_2}
+        onPress={handleAuthNavigationToSignUpScreen}
       />
       <ScrollView
         px={5}

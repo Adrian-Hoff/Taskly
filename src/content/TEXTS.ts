@@ -19,6 +19,25 @@ export const TEXTS = {
       text_3: "create account",
     },
   },
+
+  recoverPasswordScreen: {
+    stackHeaderComponent: {
+      text_1: "back",
+      text_2: "recover password",
+    },
+    inputComponent: {
+      text_1: "email",
+    },
+    textComponent: {
+      text_1: `To reset your password, please enter the email address associated with your account. We will send an email to that address with instructions on how to reset your password. Please make sure to check your inbox and spam folder. If you don't receive an email within a few minutes, please try again or contact our support team for assistance.
+
+Thank you for using our services and ensuring the security of your account.`,
+    },
+    touchableOpacityComponent: {
+      text_1: "SUBMIT EMAIL",
+    },
+  },
+  
   signUpScreen: {
     stackHeaderComponent: {
       text_1: "back",
