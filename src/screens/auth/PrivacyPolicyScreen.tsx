@@ -17,7 +17,6 @@ import { Box, ScrollView } from "native-base";
 import AuthStackHeaderComponent from "../../components/auth/AuthStackHeaderComponent";
 import TextComponent from "../../components/TextComponent";
 
-
 function PrivacyPolicyScreen() {
   const navigationAuth = useNavigationAuth();
 
@@ -25,8 +24,6 @@ function PrivacyPolicyScreen() {
     navigationAuth.navigate("SignUpScreen");
   }
 
-
-function PrivacyPolicyScreen() {
   return (
     <Box flex={1}>
       <AuthStackHeaderComponent
