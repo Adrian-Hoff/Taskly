@@ -1,11 +1,18 @@
 //react
 import React from "react";
 
-import { Box, ScrollView } from "native-base";
-import AuthStackHeaderComponent from "../../components/auth/AuthStackHeaderComponent";
+//texts
 import { TEXTS } from "../../content/TEXTS";
-import TextComponent from "../../components/TextComponent";
+
+//themes
 import { THEMES } from "../../themes/Themes";
+
+//native-base
+import { Box, ScrollView } from "native-base";
+
+//components
+import AuthStackHeaderComponent from "../../components/auth/AuthStackHeaderComponent";
+import TextComponent from "../../components/TextComponent";
 
 function TermsOfUseScreen() {
   return (
