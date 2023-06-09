@@ -15,8 +15,15 @@ import TouchableOpacityComponent from "../../components/TouchableOpacityComponen
 import InputComponent from "../../components/InputComponent";
 import TextComponent from "../../components/TextComponent";
 import SignInHeaderComponent from "../../components/auth/SignInHeaderComponent";
+import { useNavigationAuth } from "../../hooks/use-navigation/useNavigationAuth";
 
 function SignInScreen() {
+  const navigation = useNavigationAuth();
+
+  function handleNavigateToSignUpScreen() {
+    navigation.navigateToScreen("SignUpScreen");
+  }
+
   return (
     <Box flex={1}>
       <ScrollView _contentContainerStyle={{ flexGrow: 1 }}>
@@ -77,6 +84,7 @@ function SignInScreen() {
             bg={THEMES.color.bg.gray}
             fontSize={"md"}
             google={false}
+            onPress={handleNavigateToSignUpScreen}
           />
         </VStack>
       </ScrollView>
