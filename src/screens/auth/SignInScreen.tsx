@@ -92,7 +92,6 @@ function SignInScreen() {
               fontSize={"sm"}
             />
           </Center>
-
           <TouchableOpacityComponent
             text={TEXTS.signInScreen.touchableOpacityComponent.text_2}
             fontFamily={THEMES.fontFamily.Lato_700Bold}

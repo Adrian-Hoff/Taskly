@@ -18,11 +18,13 @@ import AuthStackHeaderComponent from "../../components/auth/AuthStackHeaderCompo
 import TextComponent from "../../components/TextComponent";
 
 function TermsOfUseScreen() {
+
   const navigationAuth = useNavigationAuth();
 
   function handleAuthNavigationToSignUpScreen() {
     navigationAuth.navigate("SignUpScreen");
   }
+
   return (
     <Box flex={1}>
       <AuthStackHeaderComponent

@@ -19,6 +19,7 @@ export const TEXTS = {
       text_3: "create account",
     },
   },
+
   recoverPasswordScreen: {
     stackHeaderComponent: {
       text_1: "back",
@@ -36,6 +37,7 @@ Thank you for using our services and ensuring the security of your account.`,
       text_1: "SUBMIT EMAIL",
     },
   },
+  
   signUpScreen: {
     stackHeaderComponent: {
       text_1: "back",

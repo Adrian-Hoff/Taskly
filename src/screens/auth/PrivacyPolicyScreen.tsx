@@ -1,6 +1,9 @@
 //react
 import React from "react";
 
+//hooks
+import { useNavigationAuth } from "../../hooks/use-navigation/useNavigationAuth";
+
 //texts
 import { TEXTS } from "../../content/TEXTS";
 
@@ -13,7 +16,7 @@ import { Box, ScrollView } from "native-base";
 //components
 import AuthStackHeaderComponent from "../../components/auth/AuthStackHeaderComponent";
 import TextComponent from "../../components/TextComponent";
-import { useNavigationAuth } from "../../hooks/use-navigation/useNavigationAuth";
+
 
 function PrivacyPolicyScreen() {
   const navigationAuth = useNavigationAuth();
@@ -21,6 +24,9 @@ function PrivacyPolicyScreen() {
   function handleAuthNavigationToSignUpScreen() {
     navigationAuth.navigate("SignUpScreen");
   }
+
+
+function PrivacyPolicyScreen() {
   return (
     <Box flex={1}>
       <AuthStackHeaderComponent
