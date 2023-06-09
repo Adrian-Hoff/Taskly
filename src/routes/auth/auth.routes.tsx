@@ -12,6 +12,7 @@ import SignUpScreen from "../../screens/auth/SignUpScreen";
 import { TypeRoutesAuth } from "../../types/@routes/auth/TypeNavAuth";
 import TermsOfUseScreen from "../../screens/auth/TermsOfUseScreen";
 import PrivacyPolicyScreen from "../../screens/auth/PrivacyPolicyScreen";
+import RecoverPasswordScreen from "../../screens/auth/RecoverPasswordScreen";
 
 export default function AuthRoutes() {
   const Stack = createStackNavigator<TypeRoutesAuth>();
@@ -34,6 +35,10 @@ export default function AuthRoutes() {
       <Stack.Screen
         name="PrivacyPolicyScreen"
         component={PrivacyPolicyScreen}
+      />
+      <Stack.Screen
+        name="RecoverPasswordScreen"
+        component={RecoverPasswordScreen}
       />
     </Stack.Navigator>
   );
