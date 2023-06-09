@@ -11,10 +11,10 @@ import { THEMES } from "../../themes/Themes";
 import { TEXTS } from "../../content/TEXTS";
 
 //components
-import SignInHeaderComponent from "../../components/signIn/SignInHeaderComponent";
 import TouchableOpacityComponent from "../../components/TouchableOpacityComponent";
 import InputComponent from "../../components/InputComponent";
 import TextComponent from "../../components/TextComponent";
+import SignInHeaderComponent from "../../components/auth/SignInHeaderComponent";
 
 function SignInScreen() {
   return (
