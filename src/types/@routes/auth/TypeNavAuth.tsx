@@ -6,7 +6,7 @@ export type TypeRoutesAuth = {
   SignUpScreen: undefined;
   TermsOfUseScreen: undefined;
   PrivacyPolicyScreen: undefined;
-  RecoverPassword: undefined;
+  RecoverPasswordScreen: undefined;
 };
 
 type Props = NativeStackScreenProps<TypeRoutesAuth>;
