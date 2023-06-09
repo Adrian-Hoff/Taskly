@@ -37,17 +37,18 @@ Thank you for using our services and ensuring the security of your account.`,
       text_1: "SUBMIT EMAIL",
     },
   },
-  
+
   signUpScreen: {
     stackHeaderComponent: {
       text_1: "back",
       text_2: "create account",
     },
     inputComponent: {
-      text_1: "Email",
-      text_2: "Password",
-      text_3: "Confirm Password",
-      text_4: "Phone Number",
+      text_1: "Name",
+      text_2: "Email",
+      text_3: "Password",
+      text_4: "Confirm Password",
+      text_5: "Phone Number",
     },
     textComponent: {
       text_1: "By creating your Taskly account, you are agreeing to our",
