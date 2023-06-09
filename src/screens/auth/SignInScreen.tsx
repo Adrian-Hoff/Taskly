@@ -25,6 +25,11 @@ function SignInScreen() {
   function handleNavigateToSignUpScreen() {
     navigationAuth.navigate("SignUpScreen");
   }
+
+  function handleNavigateToRecoverPasswordScreen() {
+    navigationAuth.navigate("RecoverPasswordScreen");
+  }
+
   useEffect(() => {
     console.log("signInScreen");
   }, []);
@@ -80,6 +85,7 @@ function SignInScreen() {
               fontSize={"sm"}
             />
             <TextComponent
+              onPress={handleNavigateToRecoverPasswordScreen}
               text={TEXTS.signInScreen.textComponent.text_3}
               fontFamily={THEMES.fontFamily.Lato_700Bold}
               color={THEMES.color.font.black}
