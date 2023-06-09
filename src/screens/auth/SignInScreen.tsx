@@ -10,18 +10,20 @@ import { THEMES } from "../../themes/Themes";
 //texts
 import { TEXTS } from "../../content/TEXTS";
 
+//hooks
+import { useNavigationAuth } from "../../hooks/use-navigation/useNavigationAuth";
+
 //components
 import TouchableOpacityComponent from "../../components/TouchableOpacityComponent";
 import InputComponent from "../../components/InputComponent";
 import TextComponent from "../../components/TextComponent";
 import SignInHeaderComponent from "../../components/auth/SignInHeaderComponent";
-import { useNavigationAuth } from "../../hooks/use-navigation/useNavigationAuth";
 
 function SignInScreen() {
-  const navigation = useNavigationAuth();
+  const navigationAuth = useNavigationAuth();
 
   function handleNavigateToSignUpScreen() {
-    navigation.navigateToScreen("SignUpScreen");
+    navigationAuth.navigate("SignUpScreen");
   }
 
   return (
@@ -79,12 +81,12 @@ function SignInScreen() {
           <TouchableOpacityComponent
             text={TEXTS.signInScreen.touchableOpacityComponent.text_3}
             fontFamily={THEMES.fontFamily.Lato_700Bold}
+            onPress={handleNavigateToSignUpScreen}
             color={THEMES.color.font.black}
             textTransform={"uppercase"}
             bg={THEMES.color.bg.gray}
             fontSize={"md"}
             google={false}
-            onPress={handleNavigateToSignUpScreen}
           />
         </VStack>
       </ScrollView>
