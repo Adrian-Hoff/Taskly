@@ -20,7 +20,7 @@ import { HStack, VStack } from "native-base";
 import TextComponent from "../TextComponent";
 import { useNavigationAuth } from "../../hooks/use-navigation/useNavigationAuth";
 
-function AuthStackHeaderComponent({ ...props }) {
+function AuthStackHeaderComponent({ text, ...props }) {
   return (
     <VStack p={5} pt={10} bg={THEMES.color.bg.gray} rounded={10}>
       <TouchableOpacity {...props}>
@@ -36,7 +36,7 @@ function AuthStackHeaderComponent({ ...props }) {
         </HStack>
       </TouchableOpacity>
       <TextComponent
-        text={TEXTS.signUpScreen.stackHeaderComponent.text_2}
+        text={text}
         fontFamily={THEMES.fontFamily.Lato_700Bold}
         color={THEMES.color.font.gray20}
         textTransform={"uppercase"}
