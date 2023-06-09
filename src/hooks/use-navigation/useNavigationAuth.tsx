@@ -10,11 +10,13 @@ import {
 export function useNavigationAuth() {
   const navigation = useNavigation<TypeNavigationScreensAuth>();
 
-  function navigateToScreen(screen: keyof TypeRoutesAuth) {
-    navigation.navigate(screen);
-  }
+  // function navigateToScreen(screen: keyof TypeRoutesAuth) {
+  //   navigation.navigate(screen);
+  // }
 
-  return {
-    navigateToScreen,
-  };
+  // return {
+  //   navigateToScreen,
+  // };
+
+  return navigation;
 }
