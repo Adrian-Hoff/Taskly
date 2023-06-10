@@ -1,5 +1,5 @@
 //react
-import React from "react";
+import React, { useEffect } from "react";
 
 //hooks
 import { useNavigationAuth } from "../../hooks/use-navigation/useNavigationAuth";
@@ -18,12 +18,15 @@ import AuthStackHeaderComponent from "../../components/auth/AuthStackHeaderCompo
 import TextComponent from "../../components/TextComponent";
 
 function TermsOfUseScreen() {
-
   const navigationAuth = useNavigationAuth();
 
   function handleAuthNavigationToSignUpScreen() {
     navigationAuth.navigate("SignUpScreen");
   }
+
+  useEffect(() => {
+    console.log("TermsOfUseScreen");
+  }, []);
 
   return (
     <Box flex={1}>

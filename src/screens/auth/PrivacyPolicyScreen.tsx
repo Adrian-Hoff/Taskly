@@ -1,5 +1,5 @@
 //react
-import React from "react";
+import React, { useEffect } from "react";
 
 //hooks
 import { useNavigationAuth } from "../../hooks/use-navigation/useNavigationAuth";
@@ -23,6 +23,9 @@ function PrivacyPolicyScreen() {
   function handleAuthNavigationToSignUpScreen() {
     navigationAuth.navigate("SignUpScreen");
   }
+  useEffect(() => {
+    console.log("PrivacyPolicyScreen");
+  }, []);
 
   return (
     <Box flex={1}>
