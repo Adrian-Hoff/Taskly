@@ -11,7 +11,7 @@ import {
 import * as SplashScreen from "expo-splash-screen";
 
 //firebaseConfig
-import { analytics, app } from "./src/firebase/config";
+import { app } from "./src/firebase/config";
 
 //routes
 import Router from "./src/routes/router";
@@ -23,7 +23,6 @@ SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   app;
-  analytics;
   let [fontsLoaded] = useFonts({
     Lato_300Light,
     Lato_400Regular,
