@@ -2,9 +2,7 @@
 import {
   getAuth,
   createUserWithEmailAndPassword,
-  updateCurrentUser,
   updateProfile,
-  updatePhoneNumber,
 } from "firebase/auth";
 
 //types
@@ -14,6 +12,7 @@ export async function FirebaseCreateUserWithEmailAndPassword({
   email,
   password,
   name,
+  toast,
 }: TypeFirebaseCreateUserWithEmailAndPassword) {
   const auth = getAuth();
   return createUserWithEmailAndPassword(auth, email, password)
@@ -22,10 +21,13 @@ export async function FirebaseCreateUserWithEmailAndPassword({
 
       updateProfile(user, {
         displayName: name,
-      }).then(() => console.log(user));
+      }).then(() => {
+        toast({ message: "Account Created With Success", type: "SUCCESS" });
+      });
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
+      toast({ message: errorCode, type: "ERROR" });
     });
 }
