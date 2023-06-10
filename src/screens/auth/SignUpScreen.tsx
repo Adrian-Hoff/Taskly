@@ -1,16 +1,36 @@
 //react
-import React from "react";
+import React, { useState } from "react";
+
+//types
+import { TypeSignUpScreenData } from "../../types/@states/auth/SignUpScreen/TypeSignUpScreenData";
+
+//services
+import { FirebaseCreateUserWithEmailAndPassword } from "../../services/auth/FirebaseCreateUserWithEmailAndPassword";
+
+//hooks
+import { useNavigationAuth } from "../../hooks/use-navigation/useNavigationAuth";
+import { useToastHook } from "../../hooks/use-toast/useToastHook";
+
+//themes
+import { THEMES } from "../../themes/Themes";
+
+//texts
+import { TEXTS } from "../../content/TEXTS";
+
+//native-base
 import { Box, ScrollView, Text, VStack } from "native-base";
+
+//components
 import AuthStackHeaderComponent from "../../components/auth/AuthStackHeaderComponent";
 import InputComponent from "../../components/InputComponent";
-import { THEMES } from "../../themes/Themes";
-import { TEXTS } from "../../content/TEXTS";
 import TextComponent from "../../components/TextComponent";
 import TouchableOpacityComponent from "../../components/TouchableOpacityComponent";
-import { useEffect } from "react";
-import { useNavigationAuth } from "../../hooks/use-navigation/useNavigationAuth";
 
 function SignUpScreen() {
+  const [data, setData] = useState<TypeSignUpScreenData>(
+    {} as TypeSignUpScreenData
+  );
+  const toast = useToastHook();
   const navigationAuth = useNavigationAuth();
 
   function handleGoBack() {
@@ -23,9 +43,17 @@ function SignUpScreen() {
     navigationAuth.navigate("PrivacyPolicyScreen");
   }
 
-  useEffect(() => {
-    console.log("signUpScreen");
-  }, []);
+  async function handleCreateUserWithEmailAdnPassword() {
+    await FirebaseCreateUserWithEmailAndPassword({
+      email: data.email,
+      password: data.password,
+      name: data.name,
+      passwordConfirmation: data.passwordConfirmation,
+      toast,
+    });
+  }
+  console.log("SignUpScreen");
+
   return (
     <Box flex={1}>
       <AuthStackHeaderComponent
@@ -35,6 +63,7 @@ function SignUpScreen() {
       <ScrollView _contentContainerStyle={{ flexGrow: 1 }}>
         <VStack py={10} px={5} space={3}>
           <InputComponent
+            onChangeText={(name) => setData({ ...data, name })}
             text={TEXTS.signUpScreen.inputComponent.text_1}
             fontFamily={THEMES.fontFamily.Lato_400Regular}
             color={THEMES.color.font.gray60}
@@ -42,6 +71,7 @@ function SignUpScreen() {
             fontSize={"md"}
           />
           <InputComponent
+            onChangeText={(email) => setData({ ...data, email })}
             text={TEXTS.signUpScreen.inputComponent.text_2}
             fontFamily={THEMES.fontFamily.Lato_400Regular}
             color={THEMES.color.font.gray60}
@@ -49,17 +79,23 @@ function SignUpScreen() {
             fontSize={"md"}
           />
           <InputComponent
+            onChangeText={(password) => setData({ ...data, password })}
             text={TEXTS.signUpScreen.inputComponent.text_3}
             fontFamily={THEMES.fontFamily.Lato_400Regular}
             color={THEMES.color.font.gray60}
             bg={THEMES.color.bg.gray}
+            type={"password"}
             fontSize={"md"}
           />
           <InputComponent
+            onChangeText={(passwordConfirmation) =>
+              setData({ ...data, passwordConfirmation })
+            }
             text={TEXTS.signUpScreen.inputComponent.text_4}
             fontFamily={THEMES.fontFamily.Lato_400Regular}
             color={THEMES.color.font.gray60}
             bg={THEMES.color.bg.gray}
+            type={"password"}
             fontSize={"md"}
           />
 
@@ -102,6 +138,7 @@ function SignUpScreen() {
         <VStack p={5} pt={10}>
           <TouchableOpacityComponent
             text={TEXTS.signInScreen.touchableOpacityComponent.text_3}
+            onPress={handleCreateUserWithEmailAdnPassword}
             fontFamily={THEMES.fontFamily.Lato_700Bold}
             color={THEMES.color.font.white}
             textTransform={"uppercase"}
