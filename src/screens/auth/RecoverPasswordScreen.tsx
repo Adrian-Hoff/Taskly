@@ -1,5 +1,5 @@
 //react
-import React from "react";
+import React, { useEffect } from "react";
 
 //hooks
 import { useNavigationAuth } from "../../hooks/use-navigation/useNavigationAuth";
@@ -25,6 +25,10 @@ function RecoverPasswordScreen() {
   function handleNavigateToSignInScreen() {
     navigationAuth.navigate("SignInScreen");
   }
+
+  useEffect(() => {
+    console.log("RecoverPasswordScreen");
+  }, []);
 
   return (
     <Box flex={1}>

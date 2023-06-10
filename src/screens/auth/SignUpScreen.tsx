@@ -1,5 +1,5 @@
 //react
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 //types
 import { TypeSignUpScreenData } from "../../types/@states/auth/SignUpScreen/TypeSignUpScreenData";
@@ -52,7 +52,10 @@ function SignUpScreen() {
       toast,
     });
   }
-  console.log("SignUpScreen");
+
+  useEffect(() => {
+    console.log("SignUpScreen");
+  }, []);
 
   return (
     <Box flex={1}>
