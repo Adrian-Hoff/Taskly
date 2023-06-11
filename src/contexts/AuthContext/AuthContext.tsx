@@ -21,13 +21,6 @@ function AuthContextProvider({ children }: TypeReactNode) {
     {} as TypeAuthContextUser
   );
 
-  useEffect(() => {
-    console.log(user.displayName);
-    console.log(" ");
-
-    console.log(user);
-  }, [user]);
-
   return (
     <AuthContext.Provider value={{ user, setUser }}>
       {children}
