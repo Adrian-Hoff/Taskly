@@ -7,7 +7,14 @@ import { TypeFirebaseSignInWithEmailAndPassword } from "../../types/@firebase/Ty
 export async function FirebaseSignInWithEmailAndPassword({
   email,
   password,
+  setUser,
 }: TypeFirebaseSignInWithEmailAndPassword) {
   const auth = getAuth();
-  return signInWithEmailAndPassword(auth, email, password);
+
+  return signInWithEmailAndPassword(auth, email, password).then(
+    (userCredential) => {
+      const user = userCredential.user;
+      setUser({ ...user });
+    }
+  );
 }
