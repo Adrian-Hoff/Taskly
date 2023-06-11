@@ -56,7 +56,7 @@ function SignInScreen() {
             fontSize={"md"}
           />
 
-          <TextComponent
+          {/* <TextComponent
             text={TEXTS.signInScreen.textComponent.text_1}
             fontFamily={THEMES.fontFamily.Lato_700Bold}
             color={THEMES.color.font.gray60}
@@ -73,7 +73,7 @@ function SignInScreen() {
             bg={THEMES.color.bg.gray}
             fontSize={"md"}
             google={true}
-          />
+          /> */}
         </VStack>
         <Box flex={1} />
         <VStack space={3} p={5} pt={10}>
