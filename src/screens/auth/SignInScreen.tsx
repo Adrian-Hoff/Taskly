@@ -1,8 +1,14 @@
 //react
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 //native-base
 import { Box, Center, ScrollView, Text, VStack } from "native-base";
+
+//types
+import { TypeFirebaseSignInWithEmailAndPassword } from "../../types/@firebase/TypeFirebaseSignInWithEmailAndPassword";
+
+//services
+import { FirebaseSignInWithEmailAndPassword } from "../../services/auth/FirebaseSignInWithEmailAndPassword";
 
 //themes
 import { THEMES } from "../../themes/Themes";
@@ -20,7 +26,18 @@ import TextComponent from "../../components/TextComponent";
 import SignInHeaderComponent from "../../components/auth/SignInHeaderComponent";
 
 function SignInScreen() {
+  const [signInState, setSignInState] =
+    useState<TypeFirebaseSignInWithEmailAndPassword>(
+      {} as TypeFirebaseSignInWithEmailAndPassword
+    );
   const navigationAuth = useNavigationAuth();
+
+  function handleFirebaseSignInWithEmailAndPassword() {
+    FirebaseSignInWithEmailAndPassword({
+      email: signInState.email,
+      password: signInState.password,
+    });
+  }
 
   function handleNavigateToSignUpScreen() {
     navigationAuth.navigate("SignUpScreen");
@@ -41,6 +58,7 @@ function SignInScreen() {
 
         <VStack pt={10} px={5} space={3}>
           <InputComponent
+            onChangeText={(email) => setSignInState({ ...signInState, email })}
             text={TEXTS.signInScreen.inputComponent.text_1}
             fontFamily={THEMES.fontFamily.Lato_400Regular}
             color={THEMES.color.font.gray60}
@@ -49,6 +67,9 @@ function SignInScreen() {
           />
 
           <InputComponent
+            onChangeText={(e) =>
+              setSignInState({ ...signInState, password: e })
+            }
             text={TEXTS.signInScreen.inputComponent.text_2}
             fontFamily={THEMES.fontFamily.Lato_400Regular}
             color={THEMES.color.font.gray60}
@@ -94,6 +115,7 @@ function SignInScreen() {
           </Center>
           <TouchableOpacityComponent
             text={TEXTS.signInScreen.touchableOpacityComponent.text_2}
+            onPress={handleFirebaseSignInWithEmailAndPassword}
             fontFamily={THEMES.fontFamily.Lato_700Bold}
             color={THEMES.color.font.white}
             textTransform={"uppercase"}
