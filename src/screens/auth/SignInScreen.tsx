@@ -1,5 +1,5 @@
 //react
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 //native-base
 import { Box, Center, ScrollView, Text, VStack } from "native-base";
@@ -24,8 +24,10 @@ import TouchableOpacityComponent from "../../components/TouchableOpacityComponen
 import InputComponent from "../../components/InputComponent";
 import TextComponent from "../../components/TextComponent";
 import SignInHeaderComponent from "../../components/auth/SignInHeaderComponent";
+import { AuthContext } from "../../contexts/AuthContext/AuthContext";
 
 function SignInScreen() {
+  const { setUser } = useContext(AuthContext);
   const [signInState, setSignInState] =
     useState<TypeFirebaseSignInWithEmailAndPassword>(
       {} as TypeFirebaseSignInWithEmailAndPassword
@@ -36,6 +38,7 @@ function SignInScreen() {
     FirebaseSignInWithEmailAndPassword({
       email: signInState.email,
       password: signInState.password,
+      setUser,
     });
   }
 
