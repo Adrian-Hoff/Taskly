@@ -16,6 +16,9 @@ import { app } from "./src/firebase/config";
 //routes
 import Router from "./src/routes/router";
 
+//contexts
+import AuthContextProvider from "./src/contexts/AuthContext/AuthContext";
+
 //native-base
 import { Box, NativeBaseProvider, StatusBar } from "native-base";
 
@@ -40,13 +43,15 @@ export default function App() {
   }
 
   return (
-    <NativeBaseProvider>
-      <StatusBar
-        backgroundColor="transparent"
-        barStyle={"dark-content"}
-        translucent
-      />
-      <Router />
-    </NativeBaseProvider>
+    <AuthContextProvider>
+      <NativeBaseProvider>
+        <StatusBar
+          backgroundColor="transparent"
+          barStyle={"dark-content"}
+          translucent
+        />
+        <Router />
+      </NativeBaseProvider>
+    </AuthContextProvider>
   );
 }
