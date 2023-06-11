@@ -7,4 +7,5 @@ export type TypeInputComponent = IInputProps & {
   text: string;
   fontFamily: string;
   fontSize: string;
+  error: string | undefined;
 };
