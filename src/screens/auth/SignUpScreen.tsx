@@ -1,14 +1,20 @@
 //react
 import React, { useEffect, useState } from "react";
 
+//react-hook-form
+import { Controller, useForm } from "react-hook-form";
+
+//yup
+import { yupResolver } from "@hookform/resolvers/yup";
+
+//form-schemas
+import SignUpFormSchema from "../../schemas/form/auth/SignUpFormSchema";
+
 //types
 import { TypeSignUpScreenForm } from "../../types/@states/auth/SignUpScreen/TypeSignUpScreenForm";
 
 //services
 import { FirebaseCreateUserWithEmailAndPassword } from "../../services/auth/FirebaseCreateUserWithEmailAndPassword";
-
-//react-hook-form
-import { Controller, useForm } from "react-hook-form";
 
 //hooks
 import { useNavigationAuth } from "../../hooks/use-navigation/useNavigationAuth";
@@ -16,7 +22,7 @@ import { useToastHook } from "../../hooks/use-toast/useToastHook";
 
 //themes
 import { THEMES } from "../../themes/Themes";
-import { yupResolver } from "@hookform/resolvers/yup";
+
 //texts
 import { TEXTS } from "../../content/TEXTS";
 
@@ -28,7 +34,6 @@ import AuthStackHeaderComponent from "../../components/auth/AuthStackHeaderCompo
 import InputComponent from "../../components/InputComponent";
 import TextComponent from "../../components/TextComponent";
 import TouchableOpacityComponent from "../../components/TouchableOpacityComponent";
-import SignUpFormSchema from "../../schemas/form/auth/SignUpFormSchema";
 
 function SignUpScreen() {
   const {
