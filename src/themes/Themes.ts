@@ -2,7 +2,7 @@ export const THEMES = {
   color: {
     bg: {
       black: "#000000",
-      gray: "#f0f0f0",
+      gray: "#f6f6f6",
       white: "#ffffff",
     },
     font: {
@@ -19,5 +19,11 @@ export const THEMES = {
     Lato_300Light: "Lato_300Light",
     Lato_400Regular: "Lato_400Regular",
     Lato_700Bold: "Lato_700Bold",
+  },
+  fontSize: {
+    sm: "sm",
+    md: "md",
+    lg: "lg",
+    "2xl": "2xl",
   },
 };
