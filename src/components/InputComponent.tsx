@@ -33,7 +33,7 @@ function InputComponent({
   }, [error]);
 
   useEffect(() => {
-    console.log("inputComponent");
+    // console.log("inputComponent");
   }, []);
 
   return (
