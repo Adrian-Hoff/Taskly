@@ -2,7 +2,7 @@
 import React, { useContext, useEffect, useState } from "react";
 
 //native-base
-import { Box, Center, ScrollView, Text, VStack } from "native-base";
+import { Box, Center, ScrollView, VStack } from "native-base";
 
 //types
 import { TypeFirebaseSignInWithEmailAndPassword } from "../../types/@firebase/TypeFirebaseSignInWithEmailAndPassword";
@@ -18,16 +18,20 @@ import { TEXTS } from "../../content/TEXTS";
 
 //hooks
 import { useNavigationAuth } from "../../hooks/use-navigation/useNavigationAuth";
+import { useToastHook } from "../../hooks/use-toast/useToastHook";
+
+//contexts
+import { AuthContext } from "../../contexts/AuthContext/AuthContext";
 
 //components
 import TouchableOpacityComponent from "../../components/TouchableOpacityComponent";
 import InputComponent from "../../components/InputComponent";
 import TextComponent from "../../components/TextComponent";
 import SignInHeaderComponent from "../../components/auth/SignInHeaderComponent";
-import { AuthContext } from "../../contexts/AuthContext/AuthContext";
 
 function SignInScreen() {
   const { setUser } = useContext(AuthContext);
+  const toast = useToastHook();
   const [signInState, setSignInState] =
     useState<TypeFirebaseSignInWithEmailAndPassword>(
       {} as TypeFirebaseSignInWithEmailAndPassword
@@ -39,6 +43,7 @@ function SignInScreen() {
       email: signInState.email,
       password: signInState.password,
       setUser,
+      toast,
     });
   }
 
