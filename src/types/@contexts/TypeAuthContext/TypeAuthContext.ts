@@ -1,7 +1,10 @@
-import { SetStateAction } from "react";
+//react
+import { Dispatch, SetStateAction } from "react";
+
+//types
 import { TypeAuthContextUser } from "./TypeAuthContextUser/TypeAuthContextUser";
 
 export type TypeAuthContext = {
   user: TypeAuthContextUser;
-  setUser: Function;
+  setUser: Dispatch<SetStateAction<TypeAuthContextUser>> | Function;
 };
