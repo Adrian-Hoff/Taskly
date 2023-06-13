@@ -10,6 +10,12 @@ import { TypeFirebaseSignInWithEmailAndPassword } from "../../types/@firebase/Ty
 //services
 import { FirebaseSignInWithEmailAndPassword } from "../../services/auth/FirebaseSignInWithEmailAndPassword";
 
+//types
+import { TypeFirebaseSignInWithEmailAndPassword } from "../../types/@firebase/TypeFirebaseSignInWithEmailAndPassword";
+
+//services
+import { FirebaseSignInWithEmailAndPassword } from "../../services/auth/FirebaseSignInWithEmailAndPassword";
+
 //themes
 import { THEMES } from "../../themes/Themes";
 
@@ -28,6 +34,7 @@ import TouchableOpacityComponent from "../../components/TouchableOpacityComponen
 import InputComponent from "../../components/InputComponent";
 import TextComponent from "../../components/TextComponent";
 import SignInHeaderComponent from "../../components/auth/SignInHeaderComponent";
+import { AuthContext } from "../../contexts/AuthContext/AuthContext";
 
 function SignInScreen() {
   const { setUser } = useContext(AuthContext);

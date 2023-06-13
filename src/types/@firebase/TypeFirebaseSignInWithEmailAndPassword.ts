@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction } from "react";
 import { TypeAuthContextUser } from "../@contexts/TypeAuthContext/TypeAuthContextUser/TypeAuthContextUser";
 import { TypeUseToast } from "../@hooks/TypeUseToast/TypeUseToast";
 
+
 export type TypeFirebaseSignInWithEmailAndPassword = {
   email: string;
   password: string;

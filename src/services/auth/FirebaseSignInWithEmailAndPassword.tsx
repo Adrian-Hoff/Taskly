@@ -20,4 +20,5 @@ export async function FirebaseSignInWithEmailAndPassword({
     .catch((error) => {
       toast({ message: error.message, type: "ERROR" });
     });
+
 }
