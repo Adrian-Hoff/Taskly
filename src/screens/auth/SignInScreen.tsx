@@ -84,6 +84,21 @@ function SignInScreen() {
             bg={THEMES.color.bg.gray}
             fontSize={"md"}
           />
+          <Box flexDirection={"row"} pl={1}>
+            <TextComponent
+              fontFamily={THEMES.fontFamily.Lato_400Regular}
+              text={TEXTS.signInScreen.textComponent.text_2}
+              color={THEMES.color.font.gray60}
+              fontSize={"sm"}
+            />
+            <TextComponent
+              onPress={handleNavigateToRecoverPasswordScreen}
+              text={TEXTS.signInScreen.textComponent.text_3}
+              fontFamily={THEMES.fontFamily.Lato_700Bold}
+              color={THEMES.color.font.black}
+              fontSize={"sm"}
+            />
+          </Box>
 
           {/* <TextComponent
             text={TEXTS.signInScreen.textComponent.text_1}
@@ -106,21 +121,6 @@ function SignInScreen() {
         </VStack>
         <Box flex={1} />
         <VStack space={3} p={5} pt={10}>
-          <Center flexDirection={"row"}>
-            <TextComponent
-              fontFamily={THEMES.fontFamily.Lato_400Regular}
-              text={TEXTS.signInScreen.textComponent.text_2}
-              color={THEMES.color.font.gray60}
-              fontSize={"sm"}
-            />
-            <TextComponent
-              onPress={handleNavigateToRecoverPasswordScreen}
-              text={TEXTS.signInScreen.textComponent.text_3}
-              fontFamily={THEMES.fontFamily.Lato_700Bold}
-              color={THEMES.color.font.black}
-              fontSize={"sm"}
-            />
-          </Center>
           <TouchableOpacityComponent
             text={TEXTS.signInScreen.touchableOpacityComponent.text_2}
             onPress={handleFirebaseSignInWithEmailAndPassword}

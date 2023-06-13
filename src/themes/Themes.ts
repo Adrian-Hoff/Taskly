@@ -2,7 +2,7 @@ export const THEMES = {
   color: {
     bg: {
       black: "#000000",
-      gray: "#f6f6f6",
+      gray: "#fafafa",
       white: "#ffffff",
     },
     font: {
