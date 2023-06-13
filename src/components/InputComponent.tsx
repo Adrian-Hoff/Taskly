@@ -32,10 +32,6 @@ function InputComponent({
     setIsErrorVisible(!!error);
   }, [error]);
 
-  useEffect(() => {
-    console.log("inputComponent");
-  }, []);
-
   return (
     <Box bg={THEMES.color.bg.gray} rounded={5}>
       <Input
