@@ -7,6 +7,7 @@ import VectorDashboardOutlineSVG from "../../assets/VectorDashboardOutlineSVG.sv
 //screens
 import DashboardScreen from "../../screens/app/DashboardScreen";
 import { Box } from "native-base";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 export default function AppRoutes() {
   const Tab = createBottomTabNavigator();
@@ -26,6 +27,7 @@ export default function AppRoutes() {
           shadowColor: "#808080",
         },
         tabBarShowLabel: false,
+        tabBarHideOnKeyboard: true,
       }}
       sceneContainerStyle={{ backgroundColor: "white" }}
     >
