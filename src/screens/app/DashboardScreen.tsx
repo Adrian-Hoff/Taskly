@@ -39,9 +39,9 @@ function DashboardScreen() {
           />
         </Box>
       </ScrollView>
-
+      {/* 
       <Flex flex={1} />
-      <Box bg={"white"} h={"20"} />
+      <Box bg={"white"} h={"20"} /> */}
     </Box>
   );
 }
