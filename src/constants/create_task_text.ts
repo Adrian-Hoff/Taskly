@@ -18,9 +18,9 @@ Titulo,
   o formato da resposta deve vir em JSON entre {}, nao adicione nada a mais que o objeto JSON na resposta. 
 
       "dia": resposta (padrão:{
-          hoje => 'current_day';
-          amanha => 'next_day';
-          dia do mês => numero em string;
+          se for hoje => 'current_day';
+          se for amanha => 'next_day';
+          se for dia do mês => numero em string;
       }),
       "mes": se foi mencionado, retorne o numero do mes no calendario, se nao mencionado retorne: 'current_month'
       "time": horario em formato de tempo: "hh:mm", caso nao informado: "null"
