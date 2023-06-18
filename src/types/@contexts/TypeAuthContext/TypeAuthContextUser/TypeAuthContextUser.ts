@@ -1,3 +1,5 @@
 import { User } from "firebase/auth";
 
-export type TypeAuthContextUser = User;
+export type TypeAuthContextUser = User & {
+  key?: string;
+};
