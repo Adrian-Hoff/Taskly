@@ -38,8 +38,8 @@ function SignInScreen() {
     );
   const navigationAuth = useNavigationAuth();
 
-  function handleFirebaseSignInWithEmailAndPassword() {
-    FirebaseSignInWithEmailAndPassword({
+  async function handleFirebaseSignInWithEmailAndPassword() {
+    await FirebaseSignInWithEmailAndPassword({
       email: signInState.email,
       password: signInState.password,
       setUser,
