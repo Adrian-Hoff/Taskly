@@ -26,6 +26,7 @@
     "expo-status-bar": "~1.4.4",
     "firebase": "^9.22.1",
     "native-base": "^3.4.28",
+    "openai": "^3.3.0",
     "react": "18.2.0",
     "react-hook-form": "^7.44.3",
     "react-native": "0.71.8",
