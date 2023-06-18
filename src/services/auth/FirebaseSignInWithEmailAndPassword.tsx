@@ -1,8 +1,10 @@
 //firebase
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, AuthError } from "firebase/auth";
 
 //types
 import { TypeFirebaseSignInWithEmailAndPassword } from "../../types/@firebase/TypeFirebaseSignInWithEmailAndPassword";
+import GetOpenaiKey from "../app/GetOpenaiKey";
+import { TypeAuthError } from "../../types/@firebase/errors/TypeAuthError";
 
 export async function FirebaseSignInWithEmailAndPassword({
   email,
@@ -12,13 +14,21 @@ export async function FirebaseSignInWithEmailAndPassword({
 }: TypeFirebaseSignInWithEmailAndPassword) {
   const auth = getAuth();
 
-  return signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      setUser({ ...user });
-    })
-    .catch((error) => {
-      toast({ message: error.message, type: "ERROR" });
-    });
+  async function SignIn() {
+    try {
+      const userCredentials = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredentials.user;
+      const key = await GetOpenaiKey(user);
+      setUser({ ...user, key });
+    } catch (error) {
+      const authError = error as TypeAuthError;
+      toast({ message: authError.message, type: "ERROR" });
+    }
+  }
 
+  return SignIn();
 }
