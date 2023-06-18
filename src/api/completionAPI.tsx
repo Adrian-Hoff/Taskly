@@ -1,6 +1,10 @@
 import axios from "axios";
+import { TypeCompletionAPI } from "../types/@api/TypeCompletionAPI";
 
-export default async function completitionAPI(prompt: string) {
+export default async function completitionAPI({
+  prompt,
+  user,
+}: TypeCompletionAPI) {
   try {
     const response = await axios.post(
       "https://api.openai.com/v1/completions",
@@ -13,7 +17,7 @@ export default async function completitionAPI(prompt: string) {
       {
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer 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`,
+          Authorization: `Bearer ${user.key}`,
         },
       }
     );
