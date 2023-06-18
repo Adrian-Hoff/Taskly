@@ -25,6 +25,6 @@ Titulo,
       "mes": se foi mencionado, retorne o numero do mes no calendario, se nao mencionado retorne: 'current_month'
       "time": horario em formato de tempo: "hh:mm", caso nao informado: "null"
       "tittle": de um titulo para a tarefa
-  
+Caso não seja possível criar a tarefa (o texto não faz sentido ou nao contem os dados), responder com: "não foi possivel criar a tarefa". 
 
   texto:`;
