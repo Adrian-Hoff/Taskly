@@ -2,7 +2,6 @@ import { TypeAuthContextUser } from "../../@contexts/TypeAuthContext/TypeAuthCon
 import { TypeStateTaskJSON } from "../../@states/app/DashboardScreen/TypeStateTaskJSON";
 
 export type TypeFirebaseStoreUserTask = {
-  utc: string;
   user: TypeAuthContextUser;
   taskJSON: TypeStateTaskJSON;
 };
