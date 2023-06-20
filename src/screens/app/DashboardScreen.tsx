@@ -11,10 +11,7 @@ import { APP_TEXTS } from "../../content/app/APP_TEXTS";
 import { THEMES } from "../../themes/Themes";
 
 //constants
-import {
-  create_task_text,
-  create_task_text_two,
-} from "../../constants/create_task_text";
+import { create_task_text } from "../../constants/create_task_text";
 
 //apis
 import completitionAPI from "../../api/completionAPI";
@@ -26,22 +23,33 @@ import TextComponent from "../../components/TextComponent";
 import { AuthContext } from "../../contexts/AuthContext/AuthContext";
 
 function DashboardScreen() {
+  const date = new Date();
+  const json = JSON.parse(`{
+    "title":"Estudar Fisica",
+    "utc":"2023-06-20T14:00:00Z",
+    "description":"Realizar estudos de Fisica às 14:00"
+}`);
   const { user } = useContext(AuthContext);
   const [taskText, setTaskText] = useState("");
-  const [tastkJSON, setTaskJSON] = useState();
+  const [taskJSON, setTaskJSON] = useState<string>("");
 
   async function handleApiCall() {
-    const response = await completitionAPI({
-      prompt: `${create_task_text_two} ${taskText}`,
-      user,
-    });
-    setTaskJSON(response);
+    try {
+      const response = await completitionAPI({
+        prompt: create_task_text(taskText),
+        user,
+      });
+      const stringTaskToJSON = JSON.parse(response);
+      setTaskJSON(stringTaskToJSON);
+    } catch (err) {
+      console.log(err);
+    } finally {
+    }
   }
 
   useEffect(() => {
-    console.log("DashboardScreen");
-    console.log(tastkJSON);
-  }, [tastkJSON]);
+    console.log(taskJSON);
+  }, [taskJSON]);
   return (
     <Box flex={1}>
       <ScrollView _contentContainerStyle={{ flexGrow: 1, pb: 20 }}>
