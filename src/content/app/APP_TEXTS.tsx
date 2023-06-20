@@ -29,4 +29,9 @@ export const APP_TEXTS = {
 `,
     },
   },
+  taskListScreen: {
+    TaskListHeaderComponent: {
+      text_1: "tasks",
+    },
+  },
 };
