@@ -13,6 +13,16 @@ import { THEMES } from "../../themes/Themes";
 //constants
 import { create_task_text } from "../../constants/create_task_text";
 
+//contexts
+import { AuthContext } from "../../contexts/AuthContext/AuthContext";
+
+//types
+import { TypeStateTaskJSON } from "../../types/@states/app/DashboardScreen/TypeStateTaskJSON";
+
+//firebase
+import FirebaseStoreUserTask from "../../services/app/FirebaseStoreUserTask";
+
+
 //apis
 import completitionAPI from "../../api/completionAPI";
 
@@ -31,7 +41,8 @@ function DashboardScreen() {
 }`);
   const { user } = useContext(AuthContext);
   const [taskText, setTaskText] = useState("");
-  const [taskJSON, setTaskJSON] = useState<string>("");
+  const { user } = useContext(AuthContext);
+
 
   async function handleApiCall() {
     try {
@@ -40,16 +51,15 @@ function DashboardScreen() {
         user,
       });
       const stringTaskToJSON = JSON.parse(response);
-      setTaskJSON(stringTaskToJSON);
+      const taskJSON = stringTaskToJSON;
+      FirebaseStoreUserTask({ user, taskJSON });
     } catch (err) {
       console.log(err);
-    } finally {
     }
   }
 
-  useEffect(() => {
-    console.log(taskJSON);
-  }, [taskJSON]);
+  useEffect(() => {}, []);
+
   return (
     <Box flex={1}>
       <ScrollView _contentContainerStyle={{ flexGrow: 1, pb: 20 }}>
