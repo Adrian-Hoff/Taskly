@@ -31,9 +31,6 @@ import InputComponent from "../../components/InputComponent";
 import TextComponent from "../../components/TextComponent";
 
 function DashboardScreen() {
-  const [taskJSON, setTaskJSON] = useState<TypeStateTaskJSON>(
-    {} as TypeStateTaskJSON
-  );
   const [taskText, setTaskText] = useState("");
   const { user } = useContext(AuthContext);
 
@@ -44,11 +41,10 @@ function DashboardScreen() {
         user,
       });
       const stringTaskToJSON = JSON.parse(response);
-      setTaskJSON(stringTaskToJSON);
+      const taskJSON = stringTaskToJSON;
+      FirebaseStoreUserTask({ user, taskJSON });
     } catch (err) {
       console.log(err);
-    } finally {
-      await FirebaseStoreUserTask({ user, taskJSON });
     }
   }
 
