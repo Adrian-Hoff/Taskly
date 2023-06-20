@@ -22,6 +22,7 @@ import { TypeStateTaskJSON } from "../../types/@states/app/DashboardScreen/TypeS
 //firebase
 import FirebaseStoreUserTask from "../../services/app/FirebaseStoreUserTask";
 
+
 //apis
 import completitionAPI from "../../api/completionAPI";
 
@@ -29,8 +30,16 @@ import completitionAPI from "../../api/completionAPI";
 import DashboardHeaderComponent from "../../components/app/DashboardHeaderComponent";
 import InputComponent from "../../components/InputComponent";
 import TextComponent from "../../components/TextComponent";
+import { AuthContext } from "../../contexts/AuthContext/AuthContext";
 
 function DashboardScreen() {
+  const date = new Date();
+  const json = JSON.parse(`{
+    "title":"Estudar Fisica",
+    "utc":"2023-06-20T14:00:00Z",
+    "description":"Realizar estudos de Fisica às 14:00"
+}`);
+  const { user } = useContext(AuthContext);
   const [taskText, setTaskText] = useState("");
   const { user } = useContext(AuthContext);
 
@@ -41,6 +50,7 @@ function DashboardScreen() {
         user,
       });
       const stringTaskToJSON = JSON.parse(response);
+
       const taskJSON = stringTaskToJSON;
       FirebaseStoreUserTask({ user, taskJSON });
     } catch (err) {
@@ -49,6 +59,7 @@ function DashboardScreen() {
   }
 
   useEffect(() => {}, []);
+
   return (
     <Box flex={1}>
       <ScrollView _contentContainerStyle={{ flexGrow: 1, pb: 20 }}>
