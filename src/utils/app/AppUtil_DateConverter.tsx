@@ -65,6 +65,9 @@ export function AppUtil_DateConverter(utc: Type_AppUtil_DateConverter) {
 
   function DateFormats() {
     return {
+      dbPath: `${String(date.getUTCDate()).padStart(2, "0")}-${String(
+        date.getUTCMonth() + 1
+      ).padStart(2, "0")}-${date.getUTCFullYear()}`,
       stringDMY: `${month[monthIndex]} ${DayTwoDigits()}, ${fullYear}`,
       stringDM: `${month[monthIndex]} ${DayTwoDigits()}`,
       stringMY: `${month[monthIndex]}, ${fullYear}`,
@@ -100,5 +103,13 @@ export function AppUtil_DateConverter(utc: Type_AppUtil_DateConverter) {
     return { number: MinuteTwoDigits() };
   }
 
-  return { DateFormats, Year, Month, Day, Hour, Minute };
+  function GetUTCTime() {
+    const time = `${String(date.getUTCHours()).padStart(2, "0")}:${String(
+      date.getUTCMinutes()
+    ).padStart(2, "0")}`;
+
+    return time;
+  }
+
+  return { DateFormats, Year, Month, Day, Hour, Minute, GetUTCTime };
 }
