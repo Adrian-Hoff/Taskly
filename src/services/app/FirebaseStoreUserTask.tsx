@@ -6,12 +6,9 @@ export default async function FirebaseStoreUserTask({
   taskJSON,
 }: TypeFirebaseStoreUserTask) {
   const date = new Date(taskJSON.utc);
-  const day = String(date.getUTCDate()).padStart(2, "0");
-  const month = String(date.getUTCMonth() + 1).padStart(2, "0");
-  const year = date.getUTCFullYear();
 
   const store = addDoc(
-    collection(getFirestore(), "tasks", user.uid, `${day}-${month}-${year}`),
+    collection(getFirestore(), "users-tasks", user.uid, `tasks`),
     {
       ...taskJSON,
     }
