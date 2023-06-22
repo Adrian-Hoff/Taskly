@@ -26,19 +26,19 @@ function TaskCardComponent({ taskJSON }: TypeTaskCardComponent) {
   const utcDbPath = AppUtil_DateConverter(taskJSON.utc).DateFormats().dbPath;
 
   return (
-    <Box>
+    <Box pl={4}>
       <TouchableOpacity>
         <HStack py={3}>
           <VStack space={1}>
             <TextComponent
-              fontFamily={THEMES.fontFamily.Lato_700Bold}
-              color={THEMES.color.font.gray40}
+              fontFamily={THEMES.fontFamily.Lato_400Regular}
+              color={THEMES.color.font.gray60}
               fontSize={THEMES.fontSize.lg}
               text={taskJSON.title}
             />
             <TextComponent
               fontFamily={THEMES.fontFamily.Lato_400Regular}
-              color={THEMES.color.font.gray60}
+              color={THEMES.color.font.gray80}
               fontSize={THEMES.fontSize.sm}
               text={time}
             />
@@ -47,10 +47,10 @@ function TaskCardComponent({ taskJSON }: TypeTaskCardComponent) {
 
           <HStack space={2} alignItems={"center"}>
             <TouchableOpacity>
-              <ConfirmFillSVG width={28} height={28} />
+              <ConfirmFillSVG width={24} height={24} />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => console.log("a")}>
-              <CancelFillSVG width={28} height={28} />
+              <CancelFillSVG width={24} height={24} />
             </TouchableOpacity>
           </HStack>
         </HStack>
