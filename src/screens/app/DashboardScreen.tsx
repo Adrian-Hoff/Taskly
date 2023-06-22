@@ -22,7 +22,6 @@ import { TypeStateTaskJSON } from "../../types/@states/app/DashboardScreen/TypeS
 //firebase
 import FirebaseStoreUserTask from "../../services/app/FirebaseStoreUserTask";
 
-
 //apis
 import completitionAPI from "../../api/completionAPI";
 
@@ -30,7 +29,6 @@ import completitionAPI from "../../api/completionAPI";
 import DashboardHeaderComponent from "../../components/app/DashboardHeaderComponent";
 import InputComponent from "../../components/InputComponent";
 import TextComponent from "../../components/TextComponent";
-import { AuthContext } from "../../contexts/AuthContext/AuthContext";
 
 function DashboardScreen() {
   const date = new Date();
@@ -41,8 +39,6 @@ function DashboardScreen() {
 }`);
   const { user } = useContext(AuthContext);
   const [taskText, setTaskText] = useState("");
-  const { user } = useContext(AuthContext);
-
 
   async function handleApiCall() {
     try {
