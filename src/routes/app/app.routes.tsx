@@ -4,10 +4,13 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 //svg
 import VectorDashboardFillSVG from "../../assets/VectorDashboardFillSVG.svg";
 import VectorDashboardOutlineSVG from "../../assets/VectorDashboardOutlineSVG.svg";
+import VectorListFillSVG from "../../assets/VectorListFillSVG.svg";
+import VectorListOutlineSVG from "../../assets/VectorListOutlineSVG.svg";
+
 //screens
 import DashboardScreen from "../../screens/app/DashboardScreen";
 import { Box } from "native-base";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import TaskListScreen from "../../screens/app/TaskListScreen";
 
 export default function AppRoutes() {
   const Tab = createBottomTabNavigator();
@@ -42,6 +45,14 @@ export default function AppRoutes() {
         }}
         name="dashboardScreen"
         component={DashboardScreen}
+      />
+      <Tab.Screen
+        options={{
+          tabBarIcon: ({ focused }) =>
+            focused ? <VectorListFillSVG /> : <VectorListOutlineSVG />,
+        }}
+        name="taskListScreen"
+        component={TaskListScreen}
       />
     </Tab.Navigator>
   );
