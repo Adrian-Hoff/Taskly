@@ -31,12 +31,6 @@ import InputComponent from "../../components/InputComponent";
 import TextComponent from "../../components/TextComponent";
 
 function DashboardScreen() {
-  const date = new Date();
-  const json = JSON.parse(`{
-    "title":"Estudar Fisica",
-    "utc":"2023-06-20T14:00:00Z",
-    "description":"Realizar estudos de Fisica às 14:00"
-}`);
   const { user } = useContext(AuthContext);
   const [taskText, setTaskText] = useState("");
 
