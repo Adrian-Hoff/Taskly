@@ -15,9 +15,6 @@ export default function CurrentTaskContextProvider({
       {} as TypeStateTaskFromSectionInDATA
     );
 
-  useEffect(() => {
-    console.log(currentTask);
-  }, [currentTask]);
   return (
     <CurrentTaskContext.Provider value={{ currentTask, setCurrentTask }}>
       {children}
