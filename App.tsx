@@ -21,6 +21,7 @@ import AuthContextProvider from "./src/contexts/AuthContext/AuthContext";
 
 //native-base
 import { Box, NativeBaseProvider, StatusBar } from "native-base";
+import CurrentTaskContextProvider from "./src/contexts/app/CurrentTaskContext";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -44,14 +45,16 @@ export default function App() {
 
   return (
     <AuthContextProvider>
-      <NativeBaseProvider>
-        <StatusBar
-          backgroundColor="transparent"
-          barStyle={"dark-content"}
-          translucent
-        />
-        <Router />
-      </NativeBaseProvider>
+      <CurrentTaskContextProvider>
+        <NativeBaseProvider>
+          <StatusBar
+            backgroundColor="transparent"
+            barStyle={"dark-content"}
+            translucent
+          />
+          <Router />
+        </NativeBaseProvider>
+      </CurrentTaskContextProvider>
     </AuthContextProvider>
   );
 }
