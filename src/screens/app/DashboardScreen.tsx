@@ -46,6 +46,7 @@ function DashboardScreen() {
       const taskJSON = stringTaskToJSON;
       FirebaseStoreUserTask({ user, taskJSON });
       setCurrentTask(taskJSON);
+      setTaskText("");
     } catch (err) {
       console.log(err);
     }
@@ -65,6 +66,7 @@ function DashboardScreen() {
             color={THEMES.color.font.gray80}
             onSubmitEditing={handleApiCall}
             bg={THEMES.color.bg.gray}
+            value={taskText}
             fontSize={"sm"}
           />
         </VStack>
