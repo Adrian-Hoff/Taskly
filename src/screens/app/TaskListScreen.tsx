@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 
 //contexts
 import { AuthContext } from "../../contexts/AuthContext/AuthContext";
+import { CurrentTaskContext } from "../../contexts/app/CurrentTaskContext";
 
 //services
 import { FirebaseGetAllTasks } from "../../services/app/TaskListScreen/FirebaseGetAllTasks";
@@ -26,6 +27,7 @@ import TextComponent from "../../components/TextComponent";
 
 function TaskListScreen() {
   const { user } = useContext(AuthContext);
+  const { currentTask } = useContext(CurrentTaskContext);
   const [data, setData] = useState<TypeStateDATA>([] as TypeStateDATA);
   async function handleFirebaseGetAllTasks() {
     let sections: TypeStateDATA | undefined = await FirebaseGetAllTasks(user);
@@ -34,17 +36,53 @@ function TaskListScreen() {
     }
   }
 
+  async function addTask() {
+    const currentTaskSectionTitle = AppUtil_DateConverter(
+      currentTask.utc
+    ).DateFormats().dbPath;
+
+    const sectionExists = data.find(
+      (dataTask) =>
+        AppUtil_DateConverter(dataTask.title).DateFormats().dbPath ===
+        currentTaskSectionTitle
+    );
+    if (!!sectionExists) {
+      const taskSectionData = sectionExists.data;
+
+      setData((prev) => [
+        ...prev.filter(
+          (dataTask) =>
+            AppUtil_DateConverter(dataTask.title).DateFormats().dbPath !==
+            currentTaskSectionTitle
+        ),
+        {
+          title: sectionExists.title,
+          data: [...taskSectionData, currentTask],
+        },
+      ]);
+    } else {
+      setData((prev) => [
+        ...prev,
+        { title: currentTask.utc, data: [currentTask] },
+      ]);
+    }
+
+    setData((prev) => [...prev.sort()]);
+  }
+
   useEffect(() => {
     handleFirebaseGetAllTasks();
   }, []);
 
+  useEffect(() => {
+    addTask();
+  }, [currentTask]);
   return (
     <Box flex={1}>
       <TaskListHeaderComponent />
       <SectionList
         contentContainerStyle={{ flexGrow: 1 }}
         ListFooterComponent={() => <Box pt={24}></Box>}
-        // pt={10}
         px={5}
         sections={data}
         keyExtractor={(item, index) => item.utc + index}

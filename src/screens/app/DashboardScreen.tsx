@@ -15,6 +15,7 @@ import { create_task_text } from "../../constants/create_task_text";
 
 //contexts
 import { AuthContext } from "../../contexts/AuthContext/AuthContext";
+import { CurrentTaskContext } from "../../contexts/app/CurrentTaskContext";
 
 //types
 import { TypeStateTaskJSON } from "../../types/@states/app/DashboardScreen/TypeStateTaskJSON";
@@ -33,6 +34,7 @@ import TextComponent from "../../components/TextComponent";
 function DashboardScreen() {
   const { user } = useContext(AuthContext);
   const [taskText, setTaskText] = useState("");
+  const { setCurrentTask } = useContext(CurrentTaskContext);
 
   async function handleApiCall() {
     try {
@@ -43,6 +45,7 @@ function DashboardScreen() {
       const stringTaskToJSON = JSON.parse(response);
       const taskJSON = stringTaskToJSON;
       FirebaseStoreUserTask({ user, taskJSON });
+      setCurrentTask(taskJSON);
     } catch (err) {
       console.log(err);
     }
