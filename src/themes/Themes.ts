@@ -16,9 +16,9 @@ export const THEMES = {
     },
   },
   fontFamily: {
-    Lato_300Light: "Lato_300Light",
-    Lato_400Regular: "Lato_400Regular",
-    Lato_700Bold: "Lato_700Bold",
+    Lato_300Light: "mono",
+    Lato_400Regular: "body",
+    Lato_700Bold: "heading"
   },
   fontSize: {
     sm: "sm",

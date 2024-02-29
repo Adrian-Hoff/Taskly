@@ -2,7 +2,7 @@
 import React, { useContext, useEffect, useState } from "react";
 
 //native-base
-import { Box, Flex, ScrollView, VStack } from "native-base";
+import { Box, ScrollView, VStack } from "native-base";
 
 //TEXTS
 import { APP_TEXTS } from "../../content/app/APP_TEXTS";
@@ -18,7 +18,6 @@ import { AuthContext } from "../../contexts/AuthContext/AuthContext";
 import { CurrentTaskContext } from "../../contexts/app/CurrentTaskContext";
 
 //types
-import { TypeStateTaskJSON } from "../../types/@states/app/DashboardScreen/TypeStateTaskJSON";
 
 //firebase
 import FirebaseStoreUserTask from "../../services/app/FirebaseStoreUserTask";
@@ -27,9 +26,9 @@ import FirebaseStoreUserTask from "../../services/app/FirebaseStoreUserTask";
 import completitionAPI from "../../api/completionAPI";
 
 //components
-import DashboardHeaderComponent from "../../components/app/DashboardHeaderComponent";
 import InputComponent from "../../components/InputComponent";
 import TextComponent from "../../components/TextComponent";
+import DashboardHeaderComponent from "../../components/app/DashboardHeaderComponent";
 
 function DashboardScreen() {
   const { user } = useContext(AuthContext);
@@ -37,19 +36,17 @@ function DashboardScreen() {
   const { setCurrentTask } = useContext(CurrentTaskContext);
 
   async function handleApiCall() {
-    try {
-      const response = await completitionAPI({
+      completitionAPI({
         prompt: create_task_text(taskText),
         user,
-      });
-      const stringTaskToJSON = JSON.parse(response);
-      const taskJSON = stringTaskToJSON;
-      FirebaseStoreUserTask({ user, taskJSON });
-      setCurrentTask(taskJSON);
-      setTaskText("");
-    } catch (err) {
-      console.log(err);
-    }
+      }).then(response => {
+        console.log('STEP-3');
+        console.log(response);
+        
+        FirebaseStoreUserTask({ user, response });
+        setCurrentTask(response);
+        setTaskText("");
+      }).catch(err => console.log(err))
   }
 
   useEffect(() => {}, []);
